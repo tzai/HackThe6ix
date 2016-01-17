@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% block tagline %}
+<h3 id="par">Choose your own picture story adventure. Click through the pictures and inspire yourself with the topics presented.</h3>
+{% endblock %}
+{% block content %}
+<div class="row">
+		<div class="container-fluid">
+			<center>
+					<input id="restartButton" type="button" style="margin-top: 10%; display: inline-block" class="btn btn-lg btn-primary center-block" onclick="convertRandom()" value="Generate"/>
+					<a href="choose"><input id="returnButton" type="button" class="btn btn-lg btn-primary" style="margin-top: 10%; display: inline-block" value="Return"/></a></center>
+		</div>
+	</div>
+<div class="container">
+	
+	
+	{% macro img(size = 200, keywords="null") -%}
+	<div class="col-md-3 img-card col-centered col-fixed">
+		<img src="" class="img-content center-block">
+		<img src="{{ url_for('static', filename='img/ajax-loader.gif') }}" class="spinner">
+		<h3>{{ keywords }}</h3>
+	</div>
+	{%- endmacro %}
+	
+	{% macro imgRow() -%}
+	<div id="img-container-active" class="img-container row row-centered" style="margin-bottom: 60px">
+
+		<div class="page-header">
+			<h1>Click on a picture to continue.</h1>
+		</div>
+
+		{{img()}}
+		{{img()}}
+		{{img()}}
+
+	</div>
+	{%- endmacro %}
+	
+	<div class="row">
+		<div class="container-fluid">
+			{{ imgRow() }}
+		</div>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<title></title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+		<script src="{{ url_for('static', filename='js/jquery-1.11.3.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/topic-chooser-script.js') }}"></script>
+	</head>
+	
+	<body id="content" style="background-color: #rgb(23, 53, 86);">
+		<section id="wrapper">
+			<div id="header"><center>
+				<h2 id="title">Creafly</h2>
+				<h3 id="par">Please choose which method you wish to use.</h3>
+			</center></div>
+			
+			<div style="height: 75%; width: 92%; padding: 4% 4%; margin: auto;">
+				<div id="leftDiv" style="width:49.5%; display: inline-block;">
+					<div id="topicsButton" class="btn btn-lg btn-default" style="float: right; margin-right: 5%; text-align: center; color: white">Give me the Topic List</div>
+				</div>
+				<div id="rightDiv" style="width:49.5%; display: inline-block;">
+					<div id="builderButton" class="btn btn-lg btn-default" style="float: left; margin-left: 5%; text-align: center; color: white">Give me the Story Builder</div>
+				</div>
+				<center><div id="return" class="btn btn-lg btn-default" style="margin: 2em auto; text-align: center; color: white">Never mind, lets go back</div></center>
+			</div>
+		</section>
+	</body>
+</html>

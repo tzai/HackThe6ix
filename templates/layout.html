@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Creafly</title> 
+    
+    
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+	<script src="{{ url_for('static', filename='js/jquery-1.11.3.js') }}"></script>
+   <script src="{{ url_for('static', filename='js/randomFetch.js') }}"></script>
+  </head>
+  <body>
+	  <div id="header"><center>
+		  <h2 id="title">Creafly</h2>
+		  {% block tagline %}
+		  
+		  {% endblock %}
+		  </center></div>
+    <div>
+      {% block content %}
+      {% endblock %}
+    </div>
+     
+  </body>
+</html>

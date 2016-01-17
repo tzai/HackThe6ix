@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="row">
+<div class="container-fluid">
+<div class="row row-centered">
+	<div class="col-md-3 col-centered">
+		<input type="button" style="margin-top: 25%;" class="btn btn-lg btn-primary center-block" onclick="convertRandom()" value="Get random images"/>
+	</div>
+	</div>
+	</div>
+	</div>
+	
+	<div class="row">
+	<div id="imgContainer" class="container-fluid">
+	<div class="row row-centered">
+	
+	
+
+	{% macro img(size = 200, keywords="null") -%}
+	<div class="col-md-2 img-card col-centered col-fixed">
+   	<img src="" class="img-content center-block">
+   	<img src="{{ url_for('static', filename='img/ajax-loader.gif') }}" class="spinner">
+   	<h3>{{ keywords }}</h3>
+	</div>
+	{%- endmacro %}
+	
+	{{img()}}
+	{{img()}}
+	{{img()}}
+	
+	</div>
+	</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,8 @@
+{% extends "layout.html" %}
+{% block content %}
+	<input type="button" class="btn btn-lg btn-primary" onclick="convertRandom()" value="Get random images"/>
+	<div id="imgContainer">
+		<img src="" alt="img 1">
+		<img src="" alt="img 2">
+	</div>
+{% endblock %}

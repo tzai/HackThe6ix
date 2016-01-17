@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<title></title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+		<script src="{{ url_for('static', filename='js/jquery-1.11.3.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/start-script.js') }}"></script>
+	</head>
+	
+	<body id="content" style="height: 100%; background-color: rgba(55, 53, 86, 0.8);">
+		<section id="wrapper">
+			<div id="header"><center>
+				<h2 id="title">Creafly</h2>
+				<div id="startBtn" class="btn btn-lg btn-default" style="margin-top: 1em; color: white">Get Started</div>
+				<h3 id="prompt">Creafly is a free to use tool which helps with your creative writing. Creafly uses text analysis, word/topic recomendation, and randomization to keep you interested and on the right track. To get started please select if you need help coming up with a topic.</h3>
+			</center></div>
+			
+			<section style="display: inline-block; width: 100%;">
+				<div id="leftDiv" style="width:49.5%; display: inline-block;">
+					<div id="leftButton" class="btn btn-lg btn-default" style="float: right; margin-right: 5%; text-align: center; color: white">Yes. Help me choose a Topic.</div>
+				</div>
+				<div id="rightDiv" style="width:49.5%; display: inline-block;">
+					<div id="rightButton" class="btn btn-lg btn-default" style="float: left; margin-left: 5%; text-align: center; color: white">No. I already have a Topic.</div>
+				</div>
+			</section>
+		</section>
+	</body>
+</html>

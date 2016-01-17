@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<title></title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+		<script src="{{ url_for('static', filename='js/jquery-1.11.3.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/start-script.js') }}"></script>
+	</head>
+	
+	<body id="content">
+		<section class="container">
+			<div id="header"><center>
+				<h2>Blogger Bud</h2>
+				<div id="startBtn" class="button" style="margin-top: 0.5em">Get Started</div>
+				<p id="prompt">Blogger Bud is a free to use tool which helps you with writing a succesful blog post. Blogger Bud uses text analysis, word/topic recomendation, and writing guidelines to keep you on track. To get started please select if you need help choosing a topic for your blog.</p>
+			</center></div>
+			
+			<section style="display: inline-block; width: 100%;">
+				<div id="leftDiv" class="halfDiv">
+					<div id="leftButton" class="button big" style="float: right; margin-right: 5%; text-align: center;">Yes. Help me choose a Topic.</div>
+				</div>
+				<div id="rightDiv" class="halfDiv">
+					<div id="rightButton" class="button big" style="float: left; margin-left: 5%; text-align: center;">No. I already have a Topic.</div>
+				</div>
+			</section>
+		</section>
+	</body>
+</html>

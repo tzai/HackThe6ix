@@ -1,0 +1,42 @@
+import os
+import base64
+import requests
+from flask import Flask, render_template, request, json
+from config import APP_STATIC
+
+import indicoio
+indicoio.config.api_key = '67aede1a31a94362b3bc19b369b928d3'
+
+app = Flask(__name__)
+
+@app.route("/")
+def index():
+	return render_template("index.html")
+
+@app.route("/main")
+def main():
+	return render_template("main.html");
+
+@app.route("/topics")
+def topics():
+	with open(os.path.join(APP_STATIC, "topics.txt")) as f:
+		content = f.readlines()
+	return render_template("topic-chooser.html", topics=content)
+
+@app.route("/process")
+def decodebase64():
+	url = request.args.get("url")
+	r = requests.get(url, stream = True)
+	encoded_string = base64.b64encode(r.content)
+	indicoResult = indicoio.image_recognition(encoded_string, top_n=2, hq=True)
+	app.logger.debug(indicoResult)
+	
+	return json.jsonify(uri=encoded_string, keywords=indicoResult)
+	
+	
+@app.route("/builder")
+def builder():
+	return render_template("story_builder.html")
+
+if __name__ == "__main__":
+	app.run(debug=True)
