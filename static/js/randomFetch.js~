@@ -1,0 +1,48 @@
+$(document).ready(function() {
+	$('.img-card').each(function () {
+		$(this).children('h3').hide();
+		$(this).hide();
+	});
+	
+	$('.img-card').hover(function() {
+		$(this).children('h3').slideToggle();
+	});
+});
+
+function convertFileToDataURLviaFileReader(url, callback){
+    var xhr = new XMLHttpRequest();
+    xhr.responseType = 'blob';
+    xhr.onload = function() {
+        var reader  = new FileReader();
+        reader.onloadend = function () {
+            callback(reader.result);
+        }
+        reader.readAsDataURL(xhr.response);
+    };
+    xhr.open('GET', url);
+    xhr.send();
+}
+
+function convertRandom() {
+	$(".img-card").each(function () {
+		var current = $(this);
+		current.fadeIn('slow');
+		$.get('process', { url: 'https://unsplash.it/400/?random' })
+		.done(function (data) {
+			current.children('img.spinner').hide();
+			current.children('img.img-content').attr('src', 'data:image/png;base64, ' + data.uri);
+			current.children('img.img-content').css({opacity: 0.0, visibility: "visible"}).animate({opacity: 1}, 500);
+			var keywords = "";
+			var addComma = false;
+			$.each(data.keywords, function(k, v) {
+				if(addComma) {
+					keywords += ', ';
+				} else {
+					addComma = true;
+				}
+				keywords += k;
+			});
+			current.children('h3').text(keywords);
+		});
+	});
+}

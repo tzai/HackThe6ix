@@ -1,0 +1,72 @@
+$(function() { 
+	var animationSpeed = 500;
+	var animationSpeedTwo = 400;
+	var started = false;
+	
+	// Call resize to position the objects
+	resize();
+	$('#prompt').fadeOut(0);
+	$('#leftDiv').fadeOut(0);
+	$('#rightDiv').fadeOut(0);
+	
+	// Calls resizeEnd after a 100ms delay so that calls are made after html changes by default
+	$(window).on('resizePage', function(){
+		if(this.resizeTO) clearTimeout(this.resizeTO);
+        this.resizeTO = setTimeout(function() {
+            $(this).trigger('resizeEnd');
+        }, 100);
+	});
+	
+	// Starts the begining animation
+	$('#startBtn').click( function(){
+		started = true;
+		$('#content').css('background', '#241920');
+		$('#header').animate({'padding-top': 0}, {animationSpeed});
+		$('#startBtn').fadeOut(animationSpeedTwo);
+		
+		$('#prompt').delay(animationSpeed).fadeIn(animationSpeedTwo);
+		$('#leftDiv').delay(animationSpeed).fadeIn(animationSpeedTwo);
+		$('#rightDiv').delay(animationSpeed).fadeIn(animationSpeedTwo);
+		
+		$('#leftDiv').css('padding-top', ($(window).height() - $('#header').height() - $('#leftDiv').height() * 2) / 2);
+		$('#rightDiv').css('padding-top', ($(window).height() - $('#header').height() - $('#rightDiv').height() * 2) / 2);
+	});
+	
+	$('#leftButton').click(function(){
+		$('#prompt').delay(100).fadeOut(animationSpeedTwo);
+		$('#leftDiv').fadeOut(animationSpeedTwo);
+		$('#rightDiv').delay(50).fadeOut(animationSpeedTwo);
+		setTimeout(findTopic, animationSpeed);
+	});
+	
+	$('#leftButton').click(function(){
+		$('#prompt').delay(100).fadeOut(animationSpeedTwo);
+		$('#leftDiv').delay(50).fadeOut(animationSpeedTwo);
+		$('#rightDiv').fadeOut(animationSpeedTwo);
+		setTimeout(startBlog, animationSpeed);
+	});
+	
+	// Switch to the topic picker html file
+	function findTopic() {
+		window.location = '/topics';
+	}
+	
+	// Switch to the main blog html file
+	function startBlog() {
+		window.location = '/topics';
+	}
+	
+	// Binds the resizeEnd function to the window
+	$(window).bind('resizeEnd', function() {
+		resize();
+	});
+	
+	// Resizes the screen elements, no mobile friendly version 
+	function resize() {
+		if(!started){ // just the display banner
+			$('#header').css('padding-top', ($(window).height() - $('#header').height()) / 2 + 20 + "px");
+		} else {
+			$('#header').css('padding-top', 0);
+		}
+	}
+});

@@ -1,0 +1,52 @@
+/* Div specific styles*/
+.halfDiv {
+	width: 49.5%;
+	display: inline-block;
+}
+
+#prompt {
+	color: rgba(255, 255, 255, 0.8);
+	margin: 2em 23% 0 23%;
+	font-size: 1.2em;
+}
+
+/* Fonts */
+h2 {
+	
+}
+
+/* body styles */
+#content {
+	
+}
+
+#wrapper {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(20, 60, 100, 0.8);
+}
+
+.button {
+	width: 10em;
+	background-color: rgba(25, 35, 40, 0.9);
+	border-radius: 6px;
+	color: white;
+	font-size: 1.5em;
+	padding: 0.2em 0.1em;
+}
+
+.button.big{
+	width: 15em;
+	padding: 1.5em 0.4em;
+}
+
+.button:hover {
+	background-color: rgba(25, 35, 40, 0.65);
+	cursor: pointer;
+}
+
+.button:active {
+	background-color: rgba(25, 35, 40, 0.8);
+}
+
+

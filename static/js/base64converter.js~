@@ -1,0 +1,22 @@
+function convertFileToDataURLviaFileReader(url, callback){
+    var xhr = new XMLHttpRequest();
+    xhr.responseType = 'blob';
+    xhr.onload = function() {
+        var reader  = new FileReader();
+        reader.onloadend = function () {
+            callback(reader.result);
+        }
+        reader.readAsDataURL(xhr.response);
+    };
+    xhr.open('GET', url);
+    xhr.send();
+}
+
+function convertRandom() {
+	$("#imgContainer > img").each(function () {
+		$.get('decode', { url: 'https://unsplash.it/400/400/?random' })
+		.done(function (dataUri) {
+			$(this).attr("src", "data:image/png;base64, " + dataUri);
+		});
+	});
+}
